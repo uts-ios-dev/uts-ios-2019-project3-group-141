@@ -10,16 +10,32 @@ import UIKit
 import Firebase
 
 class ViewControllerAdd: UIViewController {
-
+    let ref = Database.database().reference()
+    
+    @IBOutlet weak var sub1: UITextField!
+    @IBOutlet weak var dueDate: UIDatePicker!
+    @IBOutlet weak var nameTask: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ref = Database.database().reference()
-        ref.childByAutoId().setValue("Mike")
-
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func submitData(_ sender: Any) {
+        if nameTask.text != "" {
+            ref.childByAutoId().setValue([
+                nameTask.text! : [
+                "date" : dueDate.countDownDuration,
+                "subtasks" : [
+                    sub1.text : false
+                ]]
+            ]);
+            dismiss(animated: true, completion: nil)
+        }
+        else{
+            nameTask.backgroundColor = UIColor.red
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
