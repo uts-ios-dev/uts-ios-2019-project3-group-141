@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="ApZ-eS-dfZ">
             <objects>
-                <viewController id="TO3-Dg-hQv" customClass="ViewController" customModule="task_progress" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TO3-Dg-hQv" customClass="ViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ONW-ia-1pN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,8 @@
                                     <color key="titleShadowColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xbA-8P-3AE" kind="showDetail" id="KzM-Kk-BEH"/>
+                                    <action selector="changetoTask:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="aMW-Wc-ABj"/>
+                                    <segue destination="xbA-8P-3AE" kind="showDetail" identifier="segueTask" id="KzM-Kk-BEH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="130.58035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Task-->
         <scene sceneID="zY6-tm-tKV">
             <objects>
-                <viewController id="xbA-8P-3AE" sceneMemberID="viewController">
+                <viewController id="xbA-8P-3AE" customClass="ViewControllerTask" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e5X-gT-Mq0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,7 +85,13 @@
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="changeToAdd:" destination="xbA-8P-3AE" eventType="touchUpInside" id="6Dm-n9-fN6"/>
+                                                </connections>
                                             </button>
+                                            <connections>
+                                                <action selector="changetoAdd:" destination="xbA-8P-3AE" id="EP5-JT-nad"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="iyd-cu-dJ6">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LBL-db-EuJ">
@@ -194,15 +201,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8cw-71-B7V"/>
                     </view>
+                    <connections>
+                        <segue destination="nqd-8C-Uth" kind="presentation" identifier="segueAdd" id="U12-iX-Tyg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JS-yb-wYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="903" y="131"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Add-->
         <scene sceneID="Szf-mr-CeT">
             <objects>
-                <viewController id="nqd-8C-Uth" sceneMemberID="viewController">
+                <viewController id="nqd-8C-Uth" customClass="ViewControllerAdd" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gUz-m4-wTf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
