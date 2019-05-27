@@ -37,7 +37,7 @@
                                 </state>
                                 <connections>
                                     <action selector="changetoTask:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="fB5-dG-iK4"/>
-                                    <segue destination="xbA-8P-3AE" kind="showDetail" identifier="segueTask" id="Ybu-lD-Mja"/>
+                                    <segue destination="xbA-8P-3AE" kind="show" identifier="segueTask" id="Ybu-lD-Mja"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-TY-R0o">
