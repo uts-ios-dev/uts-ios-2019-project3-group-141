@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>536420724960-t4cdie2s6bjcp93r7mgs9nav4f0qoafr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.536420724960-t4cdie2s6bjcp93r7mgs9nav4f0qoafr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDcu5low6jOM-_NySPe9j3Usldiy-H0GJA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>536420724960</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>uts.edu.madgil.TaskApp</string>
+	<key>PROJECT_ID</key>
+	<string>tasklist-2f075</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tasklist-2f075.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:536420724960:ios:fc29613c0f181e37</string>
+	<key>DATABASE_URL</key>
+	<string>https://tasklist-2f075.firebaseio.com</string>
+</dict>
+</plist>
