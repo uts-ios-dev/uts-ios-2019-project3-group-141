@@ -31,14 +31,14 @@ class ViewControllerAdd: UIViewController {
     }
     
     @IBAction func submitData(_ sender: Any) {
+        let uidNum = Auth.auth().currentUser!.uid
         if nameTask.text != "" {
-            ref.childByAutoId().setValue([
-                nameTask.text! : [
-                "date" : dueDate.countDownDuration,
+            let datePicked = dueDate.date.description
+            ref.child(uidNum).child(nameTask.text!).setValue([
+                "date" : datePicked,
                 "subtasks" : [
-                    sub1.text : false
-                ]]
-            ]);
+                    sub1.text : false]
+                ]);
             dismiss(animated: true, completion: nil)
         }
         else{

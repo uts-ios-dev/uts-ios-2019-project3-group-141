@@ -7,11 +7,23 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ViewControllerTask: UIViewController {
 
+    let ref = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            let user = Auth.auth().currentUser
+            let uid = user!.uid
+            let email = user!.email
+        } else {
+            // User is not signed in
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -20,10 +32,16 @@ class ViewControllerTask: UIViewController {
         print("change")
         performSegue( withIdentifier: "segueAdd", sender: self)
     }
+    
+    func getTasks(){
+        let userID = Auth.auth().currentUser?.uid
+    }
     @IBAction func changeToAdd(_ sender: Any) {
         print("change")
         performSegue( withIdentifier: "segueAdd", sender: self)
     }
+    
+    
     /*
     // MARK: - Navigation
 

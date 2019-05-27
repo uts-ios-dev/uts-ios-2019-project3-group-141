@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     }
     
     func login(){
+        var errorBool = false
         if self.usernameTF.text == "" || self.passwordTF.text == "" {
             print("empty box")
             let alert = UIAlertController(title: "Error", message: "Please enter an email and password", preferredStyle: .alert)
@@ -48,16 +49,17 @@ class ViewController: UIViewController {
 //                    self.present(vc!, animated: true, completion: nil)
                     
                 } else {
+                    errorBool = true
                     print("error with login")
-//                    print(error!)
-                    let errorMsg = error?.localizedDescription;
-                    let newalert = UIAlertController(title: "Error", message: "Please enter an email and password", preferredStyle: .alert)
-                    newalert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .cancel, handler: { _ in
-                        NSLog("The \"no email or password\" alert occured.")
-                    }))
-                    self.present(newalert, animated: true, completion: nil)
+                    print(error?.localizedDescription)
                 }
             }
+        }
+        if errorBool {
+            let errAlert = UIAlertController(title: "Login Error", message: "Incorrect Creds", preferredStyle: .alert)
+            errAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(errAlert, animated: true, completion: nil)
+            errAlert.show(self, sender: self)
         }
     }
     
