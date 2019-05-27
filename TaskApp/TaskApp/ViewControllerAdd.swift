@@ -18,6 +18,16 @@ class ViewControllerAdd: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            let user = Auth.auth().currentUser
+            let uid = user!.uid
+            let email = user!.email
+            // ...
+        } else {
+            // User is not signed in
+            //kick them out.
+        }
     }
     
     @IBAction func submitData(_ sender: Any) {
