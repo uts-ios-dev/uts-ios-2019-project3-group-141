@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F09651A229A2D1300C0B436 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F096519229A2D1300C0B436 /* ProgressView.swift */; };
+		0F09651C229A2D6800C0B436 /* DetailTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F09651B229A2D6800C0B436 /* DetailTaskViewController.swift */; };
 		9E4CDCF822964414007C8776 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E4CDCF722964414007C8776 /* GoogleService-Info.plist */; };
 		9EA4FC3A229636FF00C368BB /* ViewControllerAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA4FC39229636FF00C368BB /* ViewControllerAdd.swift */; };
 		9EA4FC3C229637BE00C368BB /* ViewControllerTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA4FC3B229637BE00C368BB /* ViewControllerTask.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F096519229A2D1300C0B436 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		0F09651B229A2D6800C0B436 /* DetailTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskViewController.swift; sourceTree = "<group>"; };
 		4CC5E7C0AFCE12C921DDC249 /* Pods-TaskAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskAppUITests.release.xcconfig"; path = "Target Support Files/Pods-TaskAppUITests/Pods-TaskAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5A25CEDB81AFDF27639112EF /* Pods-TaskAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskAppTests.release.xcconfig"; path = "Target Support Files/Pods-TaskAppTests/Pods-TaskAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		672E65C9E2DC834A8035B20E /* Pods_TaskAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +156,8 @@
 				9EA4FC39229636FF00C368BB /* ViewControllerAdd.swift */,
 				9E4CDCF722964414007C8776 /* GoogleService-Info.plist */,
 				9EA4FC3B229637BE00C368BB /* ViewControllerTask.swift */,
+				0F096519229A2D1300C0B436 /* ProgressView.swift */,
+				0F09651B229A2D6800C0B436 /* DetailTaskViewController.swift */,
 			);
 			path = TaskApp;
 			sourceTree = "<group>";
@@ -411,7 +417,9 @@
 			files = (
 				D48E7F3522954ABC00130E24 /* ViewController.swift in Sources */,
 				9EA4FC3C229637BE00C368BB /* ViewControllerTask.swift in Sources */,
+				0F09651A229A2D1300C0B436 /* ProgressView.swift in Sources */,
 				9EA4FC3A229636FF00C368BB /* ViewControllerAdd.swift in Sources */,
+				0F09651C229A2D6800C0B436 /* DetailTaskViewController.swift in Sources */,
 				D48E7F3322954ABC00130E24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
