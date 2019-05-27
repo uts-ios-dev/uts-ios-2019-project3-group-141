@@ -21,10 +21,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
+    @IBAction func signUpClick(_ sender: Any) {
+        signup()
+    }
     @IBAction func changetoTask(_ sender: Any) {
-//        signup()
         login()
-        
 //         performSegue( withIdentifier: "segueTask", sender: self)
     }
     
