@@ -9,6 +9,8 @@ target 'TaskApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'GoogleSignIn'
+  pod 'Firebase/Auth'
+  pod 'FirebaseUI'
 
   target 'TaskAppTests' do
     inherit! :search_paths
