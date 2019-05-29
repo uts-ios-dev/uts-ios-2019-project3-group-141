@@ -36,6 +36,9 @@ class ViewControllerAdd: UIViewController {
         }
     }
     
+    @IBAction func funcBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

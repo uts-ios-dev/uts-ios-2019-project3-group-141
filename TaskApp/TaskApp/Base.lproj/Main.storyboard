@@ -230,6 +230,9 @@
                                                 <state key="normal" title="&lt;">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="funcBack:" destination="nqd-8C-Uth" eventType="touchUpInside" id="eUk-H8-qSq"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="5Sg-g6-cHN">
