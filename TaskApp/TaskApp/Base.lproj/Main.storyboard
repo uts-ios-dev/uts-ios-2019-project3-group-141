@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--loginScen-->
         <scene sceneID="ApZ-eS-dfZ">
             <objects>
-                <viewController id="TO3-Dg-hQv" customClass="ViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="loginScen" id="TO3-Dg-hQv" customClass="ViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NDF-Dl-xzC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,20 +25,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-QQ-mcw">
-                                <rect key="frame" x="143" y="522" width="131" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
-                                <state key="normal" title="Login ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changetoTask:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="fB5-dG-iK4"/>
-                                    <segue destination="xbA-8P-3AE" kind="show" identifier="segueTask" id="Ybu-lD-Mja"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-TY-R0o">
                                 <rect key="frame" x="124" y="403" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -70,9 +56,20 @@
                                     <color key="titleShadowColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="changetoTask:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="mb5-xa-l8f"/>
-                                    <action selector="signUpClick:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="7BB-7I-Eqg"/>
-                                    <segue destination="xbA-8P-3AE" kind="show" id="Jfv-Lz-pal"/>
+                                    <action selector="signupClicked:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="ZK1-SV-Uwl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyt-NK-TYx">
+                                <rect key="frame" x="143" y="522" width="131" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
+                                <state key="normal" title="Login ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginClicked:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="S7J-eJ-cWi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,18 +77,21 @@
                         <viewLayoutGuide key="safeArea" id="Hwa-R5-stg"/>
                     </view>
                     <connections>
+                        <outlet property="loginBtn" destination="Hyt-NK-TYx" id="ZTG-60-UhH"/>
                         <outlet property="passwordTF" destination="pOg-Ba-hS2" id="hnW-rN-Iny"/>
                         <outlet property="usernameTF" destination="0k1-TY-R0o" id="IV5-XG-SKa"/>
+                        <segue destination="xbA-8P-3AE" kind="show" identifier="toTasksSegue" id="cKu-q5-mre"/>
+                        <segue destination="xbA-8P-3AE" kind="show" identifier="wholeScene" id="Y2Q-S1-jeJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1P-vw-pTK" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="130.58035714285714"/>
         </scene>
-        <!--Detail Task View Controller-->
+        <!--detailtaskScene-->
         <scene sceneID="EoS-9K-y6y">
             <objects>
-                <viewController id="s0c-iw-8CS" customClass="DetailTaskViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="detailtaskScene" id="s0c-iw-8CS" customClass="DetailTaskViewController" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qj0-ZE-ic0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,23 +240,14 @@
             </objects>
             <point key="canvasLocation" x="118.84057971014494" y="826.33928571428567"/>
         </scene>
-        <!--View Controller Task-->
+        <!--taskScene-->
         <scene sceneID="zY6-tm-tKV">
             <objects>
-                <viewController id="xbA-8P-3AE" customClass="ViewControllerTask" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="taskScene" id="xbA-8P-3AE" customClass="ViewControllerTask" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e5X-gT-Mq0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYb-pb-I2I">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="0og-t9-TFb"/>
-                                    <tabBarItem systemItem="more" id="iK1-zy-1pt"/>
-                                </items>
-                            </tabBar>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n6q-r6-jrF">
                                 <rect key="frame" x="0.0" y="60" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -382,6 +373,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynn-UC-cqn">
+                                <rect key="frame" x="142" y="757" width="131" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginClicked:" destination="TO3-Dg-hQv" eventType="touchUpInside" id="0BZ-UU-NP1"/>
+                                    <action selector="logoutClicked:" destination="xbA-8P-3AE" eventType="touchUpInside" id="1fC-nd-IGq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8cw-71-B7V"/>
@@ -394,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="903" y="131"/>
         </scene>
-        <!--View Controller Add-->
+        <!--addScene-->
         <scene sceneID="Szf-mr-CeT">
             <objects>
-                <viewController id="nqd-8C-Uth" customClass="ViewControllerAdd" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="addScene" id="nqd-8C-Uth" customClass="ViewControllerAdd" customModule="TaskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gUz-m4-wTf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -512,6 +517,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ybu-lD-Mja"/>
+        <segue reference="Y2Q-S1-jeJ"/>
     </inferredMetricsTieBreakers>
 </document>
