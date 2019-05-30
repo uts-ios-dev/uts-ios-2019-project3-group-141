@@ -16,11 +16,13 @@ class ViewControllerTask: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("loaded")
+        getTasks()
         if Auth.auth().currentUser != nil {
             // User is signed in.
-            let user = Auth.auth().currentUser
-            let uid = user!.uid
-            let email = user!.email
+//            let user = Auth.auth().currentUser
+//            let uid = user!.uid
+//            let email = user!.email
         } else {
             // User is not signed in
         }
@@ -28,6 +30,20 @@ class ViewControllerTask: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func logoutClicked(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        var error = false
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            error = true
+        }
+        if !error {
+            dismiss(animated: true, completion: nil)
+        }
+        print("you have logged out")
+    }
     @IBAction func changetoAdd(_ sender: Any) {
         print("change")
         performSegue( withIdentifier: "segueAdd", sender: self)
@@ -35,6 +51,9 @@ class ViewControllerTask: UIViewController {
     
     func getTasks(){
         let userID = Auth.auth().currentUser?.uid
+        let getList = ref.child(userID!).description()
+        print("the list..")
+        print(getList)
     }
     @IBAction func changeToAdd(_ sender: Any) {
         print("change")
