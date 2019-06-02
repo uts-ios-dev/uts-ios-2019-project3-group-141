@@ -10,8 +10,10 @@ import UIKit
 import Firebase
 
 class ViewControllerAdd: UIViewController {
-    let ref = Database.database().reference()
-    
+    var ref = Database.database().reference()
+    var user: User?
+    var uid: String?
+    var email: String?
     @IBOutlet weak var sub1: UITextField!
     @IBOutlet weak var dueDate: UIDatePicker!
     @IBOutlet weak var nameTask: UITextField!
@@ -20,24 +22,25 @@ class ViewControllerAdd: UIViewController {
         // Do any additional setup after loading the view.
         if Auth.auth().currentUser != nil {
             // User is signed in.
-            let user = Auth.auth().currentUser
-            let uid = user!.uid
-            let email = user!.email
+            user = Auth.auth().currentUser!
+            uid = user!.uid
+            email = user!.email!
             // ...
         } else {
             // User is not signed in
             //kick them out.
+            dismiss(animated: true, completion: nil)
         }
     }
-    
     @IBAction func submitData(_ sender: Any) {
+        print(uid!)
+        ref = Database.database().reference().child(uid!)
         if nameTask.text != "" {
             ref.childByAutoId().setValue([
-                nameTask.text! : [
+                "name" : nameTask.text!,
                 "date" : dueDate.countDownDuration,
                 "subtasks" : [
-                    sub1.text : false
-                ]]
+                    sub1.text : false                ]
             ]);
             dismiss(animated: true, completion: nil)
         }

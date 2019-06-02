@@ -7,13 +7,33 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewControllerTask: UIViewController {
-
+    var ref = Database.database().reference()
+    var user: User?
+    var uid: String?
+    var email: String?
+    var databaseHandle: DatabaseHandle?
+    var postData = [String]()
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            user = Auth.auth().currentUser!
+            uid = user!.uid
+            email = user!.email!
+            // ...
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
         // Do any additional setup after loading the view.
+        databaseHandle = ref.child(uid!).observe(.childAdded, with: {(snapshot) in
+            print(snapshot.value)
+            //self.postData.append(snapshot.children)
+        })
     }
     
     @IBAction func changetoAdd(_ sender: Any) {
