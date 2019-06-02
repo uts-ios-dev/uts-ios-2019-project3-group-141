@@ -11,23 +11,30 @@ import Firebase
 
 
 class ViewControllerTask: UIViewController {
-
-    let ref = Database.database().reference()
+    var ref = Database.database().reference()
+    var user: User?
+    var uid: String?
+    var email: String?
+    var databaseHandle: DatabaseHandle?
+    var postData = [String]()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("loaded")
-        getTasks()
         if Auth.auth().currentUser != nil {
             // User is signed in.
-//            let user = Auth.auth().currentUser
-//            let uid = user!.uid
-//            let email = user!.email
+            user = Auth.auth().currentUser!
+            uid = user!.uid
+            email = user!.email!
+            // ...
         } else {
-            // User is not signed in
+            dismiss(animated: true, completion: nil)
         }
-
         // Do any additional setup after loading the view.
+        databaseHandle = ref.child(uid!).observe(.childAdded, with: {(snapshot) in
+            print(snapshot.value)
+            //self.postData.append(snapshot.children)
+        })
     }
     
     @IBAction func logoutClicked(_ sender: Any) {
@@ -70,5 +77,6 @@ class ViewControllerTask: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }
