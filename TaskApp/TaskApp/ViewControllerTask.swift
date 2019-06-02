@@ -18,6 +18,7 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
     var email: String?
     var databaseHandle: DatabaseHandle?
     var postData = [String]()
+    var identifiers = [String]()
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
             //print(snapshot)
             let value = snapshot.value as? NSDictionary
             self.postData.append(value?["name"] as! String)
+            self.identifiers.append(snapshot.key)
             print(self.postData)
             self.table.reloadData()
         })
@@ -52,6 +54,10 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
         let cell = self.table.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         cell.textLabel!.text = postData[indexPath.row]
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(identifiers[indexPath[1]])
+        /*perform segue here sending identifiers in index path[1]*/
     }
     @IBAction func logoutClicked(_ sender: Any) {
         let firebaseAuth = Auth.auth()

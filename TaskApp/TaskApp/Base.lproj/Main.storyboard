@@ -437,6 +437,9 @@
                         <outlet property="dueDate" destination="I1X-g3-ydV" id="7MI-Ci-a5E"/>
                         <outlet property="nameTask" destination="Azl-QQ-RnS" id="wYG-hw-qW6"/>
                         <outlet property="sub1" destination="e51-wP-jrm" id="VMy-Hn-dN8"/>
+                        <outlet property="sub2" destination="dF7-AO-lW5" id="8DW-xU-Adl"/>
+                        <outlet property="sub3" destination="iJ1-jy-k4k" id="RUR-Zh-bDQ"/>
+                        <outlet property="sub4" destination="6MY-mO-Zk8" id="Ct7-hA-SkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QW8-G6-1LO" userLabel="First Responder" sceneMemberID="firstResponder"/>

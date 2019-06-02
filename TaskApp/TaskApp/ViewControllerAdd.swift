@@ -15,6 +15,10 @@ class ViewControllerAdd: UIViewController {
     var uid: String?
     var email: String?
     @IBOutlet weak var sub1: UITextField!
+    
+    @IBOutlet weak var sub4: UITextField!
+    @IBOutlet weak var sub3: UITextField!
+    @IBOutlet weak var sub2: UITextField!
     @IBOutlet weak var dueDate: UIDatePicker!
     @IBOutlet weak var nameTask: UITextField!
     override func viewDidLoad() {
@@ -37,12 +41,25 @@ class ViewControllerAdd: UIViewController {
         print(uid!)
         let dateFormat = "\(dueDate.date)"
         ref = Database.database().reference().child(uid!)
-        if nameTask.text != "" {
+        if nameTask.text != "" && sub1.text != ""{
+            if sub2.text == "" {
+                sub2.text = "n1"
+            }
+            if sub3.text == "" {
+                sub3.text = "n2"
+            }
+            if sub4.text == "" {
+                sub4.text = "n3"
+            }
             ref.childByAutoId().setValue([
                 "name" : nameTask.text!,
                 "date" : dateFormat,
                 "subtasks" : [
-                    sub1.text : false                ]
+                    sub1.text : false,
+                    sub2.text : false,
+                    sub3.text : false,
+                    sub4.text : false
+                ]
             ]);
             dismiss(animated: true, completion: nil)
         }
