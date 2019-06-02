@@ -35,11 +35,12 @@ class ViewControllerAdd: UIViewController {
     @IBAction func submitData(_ sender: Any) {
 
         print(uid!)
+        let dateFormat = "\(dueDate.date)"
         ref = Database.database().reference().child(uid!)
         if nameTask.text != "" {
             ref.childByAutoId().setValue([
                 "name" : nameTask.text!,
-                "date" : dueDate.countDownDuration,
+                "date" : dateFormat,
                 "subtasks" : [
                     sub1.text : false                ]
             ]);
