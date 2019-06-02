@@ -57,6 +57,7 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(identifiers[indexPath[1]])
+        performSegue( withIdentifier: "showDetailSegue", sender: self)
         /*perform segue here sending identifiers in index path[1]*/
     }
     @IBAction func logoutClicked(_ sender: Any) {
