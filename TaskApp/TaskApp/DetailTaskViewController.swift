@@ -7,7 +7,6 @@
 //
 
 import UIKit
-<<<<<<< HEAD
 import Firebase
 
 class DetailTaskViewController: UIViewController {
@@ -19,16 +18,6 @@ class DetailTaskViewController: UIViewController {
     var uid: String?
     var email: String?
     var databaseHandle: DatabaseHandle?
-=======
-import os.log
-class DetailTaskViewController: UIViewController {
-    
-     var countFired: CGFloat = 0
-    
-    @IBOutlet weak var nameTextField: UITextField!
-    
-    @IBOutlet weak var dueDateLabel: UILabel!
->>>>>>> b0caa73cfcfc77f3f6b9693092eac1c2183c0c18
     
     @IBOutlet weak var taskProgress: ProgressView!
     
@@ -45,7 +34,7 @@ class DetailTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
+
         if Auth.auth().currentUser != nil {
             // User is signed in.
             user = Auth.auth().currentUser!
@@ -55,9 +44,7 @@ class DetailTaskViewController: UIViewController {
         } else {
             dismiss(animated: true, completion: nil)
         }
-=======
-       // nameLabel.text = postData
->>>>>>> b0caa73cfcfc77f3f6b9693092eac1c2183c0c18
+
         // Do any additional setup after loading the view.
         print(identifier!)
         databaseHandle = ref.child(uid!).child(identifier!).observe(.childAdded, with: {(snapshot) in
@@ -156,14 +143,10 @@ class DetailTaskViewController: UIViewController {
     }
     
     
-    
-<<<<<<< HEAD
     @IBAction func funcBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-=======
->>>>>>> b0caa73cfcfc77f3f6b9693092eac1c2183c0c18
 }
 
   
