@@ -82,6 +82,7 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        
         if segue.destination is DetailTaskViewController
         {
             let vc = segue.destination as? DetailTaskViewController

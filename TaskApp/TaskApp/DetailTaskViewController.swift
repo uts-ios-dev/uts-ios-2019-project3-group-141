@@ -18,19 +18,20 @@ class DetailTaskViewController: UIViewController {
     var uid: String?
     var email: String?
     var databaseHandle: DatabaseHandle?
+
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var taskProgress: ProgressView!
-    
     @IBOutlet weak var firstTaskClicked: UIButton!
-    
-    
     @IBOutlet weak var secondTaskClicked: UIButton!
-    
-    
     @IBOutlet weak var thirdTaskClicked: UIButton!
-    
-    
     @IBOutlet weak var fourthTaskClicked: UIButton!
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
+    @IBOutlet weak var fourthLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +46,63 @@ class DetailTaskViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
 
+        firstLabel.isHidden = true
+        secondLabel.isHidden = true
+        thirdLabel.isHidden = true
+        fourthLabel.isHidden = true
+
+        ref.child(uid!).child(identifier!).observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
+            let value2 = snapshot.value as? NSDictionary
+            let nameValue = value2?["name"] as? String ?? ""
+            self.taskNameLabel.text = nameValue
+            let dateValue = value2?["date"] as? String ?? ""
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-mm-yyyy"
+            dateFormatter.date(from: dateValue)
+            let date = dateFormatter.date(from: dateValue)?.description
+            self.dateLabel.text = dateValue
+        })
+        ref.child(uid!).child(identifier!).child("subtasks").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value3 = snapshot.value as? NSDictionary
+            var subArray = value3?.allKeys
+            var text1:String = ""
+            var text2: String = ""
+            var text3: String = ""
+            var text4: String = ""
+            print("subtasks are:\(subArray)")
+            if subArray![0] != nil {
+                 text1 = subArray![0] as! String
+                self.firstLabel.text = text1
+                self.firstLabel.isHidden = false
+            }
+            if subArray![1] != nil {
+                text2 = subArray![1] as! String
+                self.secondLabel.text = text2
+                self.secondLabel.isHidden = false
+            }
+            if subArray![2] != nil {
+                text3 = subArray![2] as! String
+                self.thirdLabel.text = text3
+                self.thirdLabel.isHidden = false
+            }
+            if subArray![3] != nil {
+                text4 = subArray![3] as! String
+                self.thirdLabel.text = text4
+                self.thirdLabel.isHidden = false
+            }
+        })
+        
         // Do any additional setup after loading the view.
-        print(identifier!)
+        print("identifier is: \(identifier!)")
         databaseHandle = ref.child(uid!).child(identifier!).observe(.childAdded, with: {(snapshot) in
             print(snapshot)
             let value = snapshot.value as? NSDictionary
-            print(value)
+//            print("access value name:")
+//            print(value)
         })
     }
+    
     
     @IBAction func firstSubtask(_ sender: UIButton) {
         Timer.scheduledTimer(withTimeInterval: 0.08, repeats: true){ (timer) in

@@ -120,17 +120,6 @@
                                     <action selector="firstSubtask:" destination="s0c-iw-8CS" eventType="touchUpInside" id="EZE-dP-Qfz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAo-iF-mPH">
-                                <rect key="frame" x="278" y="559" width="93" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99193829300000003" green="0.9908530136" blue="0.63659139490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="15"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Completed"/>
-                                <connections>
-                                    <action selector="secondSubtask:" destination="s0c-iw-8CS" eventType="touchUpInside" id="x43-j3-CAz"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEc-E5-be0">
                                 <rect key="frame" x="278" y="614" width="93" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,6 +208,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAo-iF-mPH">
+                                <rect key="frame" x="278" y="559" width="93" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99193829300000003" green="0.9908530136" blue="0.63659139490000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Damascus" family="Damascus" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Completed"/>
+                                <connections>
+                                    <action selector="secondSubtask:" destination="s0c-iw-8CS" eventType="touchUpInside" id="x43-j3-CAz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wzw-x9-85s"/>
@@ -226,10 +226,16 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="BTc-nW-nWv" id="gB1-uC-nDY"/>
+                        <outlet property="firstLabel" destination="BXi-QQ-7Qo" id="G3Z-99-xeU"/>
                         <outlet property="firstTaskClicked" destination="04L-GK-NBh" id="wsf-FF-YgN"/>
+                        <outlet property="fourthLabel" destination="CuR-Op-k5u" id="OWG-NA-fcC"/>
                         <outlet property="fourthTaskClicked" destination="7bi-yX-uAh" id="jNV-G7-Zfr"/>
+                        <outlet property="secondLabel" destination="3Kp-tz-gCg" id="Orz-W0-Fd4"/>
                         <outlet property="secondTaskClicked" destination="SAo-iF-mPH" id="rJL-yS-FoP"/>
+                        <outlet property="taskNameLabel" destination="j4n-nI-LP5" id="z8X-wo-dsD"/>
                         <outlet property="taskProgress" destination="VPp-Pp-bos" id="Tfa-xv-4fg"/>
+                        <outlet property="thirdLabel" destination="AVD-Eh-hHY" id="Zys-cz-0lT"/>
                         <outlet property="thirdTaskClicked" destination="sEc-E5-be0" id="09i-Rv-Scb"/>
                     </connections>
                 </viewController>
@@ -280,7 +286,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fM3-pQ-tqK">
-                                <rect key="frame" x="0.0" y="150" width="414" height="546"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="645"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -320,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JS-yb-wYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="131"/>
+            <point key="canvasLocation" x="902.89855072463774" y="130.58035714285714"/>
         </scene>
         <!--addScene-->
         <scene sceneID="Szf-mr-CeT">
