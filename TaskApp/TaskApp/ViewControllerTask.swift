@@ -19,6 +19,7 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
     var databaseHandle: DatabaseHandle?
     var postData = [String]()
     var identifiers = [String]()
+    var lastClicked = 0
     @IBOutlet weak var table: UITableView!
     
     override func viewDidLoad() {
@@ -57,7 +58,9 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(identifiers[indexPath[1]])
+        lastClicked = indexPath[1]
         /*perform segue here sending identifiers in index path[1]*/
+        performSegue( withIdentifier: "segueInfo", sender: self)
     }
     @IBAction func logoutClicked(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -77,7 +80,14 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
         print("change")
         performSegue( withIdentifier: "segueAdd", sender: self)
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DetailTaskViewController
+        {
+            let vc = segue.destination as? DetailTaskViewController
+            vc?.identifier = identifiers[lastClicked]
+        }
+    }
     func getTasks(){
         let userID = Auth.auth().currentUser?.uid
         let getList = ref.child(userID!).description()

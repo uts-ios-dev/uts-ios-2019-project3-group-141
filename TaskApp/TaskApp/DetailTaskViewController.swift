@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailTaskViewController: UIViewController {
     
-     var countFired: CGFloat = 0
-    
+    var countFired: CGFloat = 0
+    var identifier: String?
+    var ref = Database.database().reference()
+    var user: User?
+    var uid: String?
+    var email: String?
+    var databaseHandle: DatabaseHandle?
     
     @IBOutlet weak var taskProgress: ProgressView!
     
@@ -28,8 +34,22 @@ class DetailTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            user = Auth.auth().currentUser!
+            uid = user!.uid
+            email = user!.email!
+            // ...
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
         // Do any additional setup after loading the view.
+        print(identifier!)
+        databaseHandle = ref.child(uid!).child(identifier!).observe(.childAdded, with: {(snapshot) in
+            print(snapshot)
+            let value = snapshot.value as? NSDictionary
+            print(value)
+        })
     }
     
     @IBAction func firstSubtask(_ sender: UIButton) {
@@ -110,5 +130,8 @@ class DetailTaskViewController: UIViewController {
         fourthTaskClicked.isEnabled = false
     }
     
-
+    @IBAction func funcBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

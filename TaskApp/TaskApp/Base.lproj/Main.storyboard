@@ -203,14 +203,11 @@
                                         <barButtonItem key="leftBarButtonItem" title="Done" id="qHM-B4-KjT">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="xbA-8P-3AE" kind="show" identifier="backToTaskList" id="Ctt-Sb-CHx"/>
+                                                <action selector="funcBack:" destination="s0c-iw-8CS" id="0YX-r5-Rd7"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="6LU-7a-v0N">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="xbA-8P-3AE" kind="show" identifier="saveDetail" id="roZ-8f-24x"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -238,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBF-9f-L0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118.84057971014494" y="826.33928571428567"/>
+            <point key="canvasLocation" x="903" y="948"/>
         </scene>
         <!--taskScene-->
         <scene sceneID="zY6-tm-tKV">
@@ -318,6 +315,7 @@
                     <connections>
                         <outlet property="table" destination="fM3-pQ-tqK" id="EF5-QN-JNX"/>
                         <segue destination="nqd-8C-Uth" kind="presentation" identifier="segueAdd" id="U12-iX-Tyg"/>
+                        <segue destination="s0c-iw-8CS" kind="presentation" identifier="segueInfo" id="TzC-IX-pfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JS-yb-wYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
