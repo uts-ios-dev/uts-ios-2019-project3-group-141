@@ -7,11 +7,14 @@
 //
 
 import UIKit
-
+import os.log
 class DetailTaskViewController: UIViewController {
     
      var countFired: CGFloat = 0
     
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var dueDateLabel: UILabel!
     
     @IBOutlet weak var taskProgress: ProgressView!
     
@@ -28,7 +31,7 @@ class DetailTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       // nameLabel.text = postData
         // Do any additional setup after loading the view.
     }
     
@@ -109,6 +112,20 @@ class DetailTaskViewController: UIViewController {
         
         fourthTaskClicked.isEnabled = false
     }
+   
+   
     
-
+    @IBAction func saveButton(_ sender: Any) {
+    }
+    
+    
+    @IBAction func doneButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
 }
+
+  
+
