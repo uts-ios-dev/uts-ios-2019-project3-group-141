@@ -34,6 +34,8 @@ class ViewController: UIViewController {
                 print("LOG: authenticated ")
                 // 3
                 self.allowlogin = true
+                self.usernameTF.text = ""
+                self.passwordTF.text = ""
                 self.performSegue(withIdentifier: "wholeScene", sender: nil)
             }
             else {
@@ -57,6 +59,10 @@ class ViewController: UIViewController {
     func login(){
         if self.usernameTF.text == "" || self.passwordTF.text == "" {
             print("LOG: empty box")
+            let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
         } else {
             print("LOG: running the signin else part 1")
             //this is running too long.
@@ -72,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     func signup(){
-        if usernameTF.text == "" {
+        if usernameTF.text == "" || passwordTF.text == "" {
             print("username is empty")
             let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

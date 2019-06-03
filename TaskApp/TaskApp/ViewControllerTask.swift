@@ -58,7 +58,11 @@ class ViewControllerTask : UIViewController, UITableViewDelegate, UITableViewDat
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(identifiers[indexPath[1]])
+<<<<<<< HEAD
         lastClicked = indexPath[1]
+=======
+        performSegue( withIdentifier: "showDetailSegue", sender: self)
+>>>>>>> b0caa73cfcfc77f3f6b9693092eac1c2183c0c18
         /*perform segue here sending identifiers in index path[1]*/
         performSegue( withIdentifier: "segueInfo", sender: self)
     }
