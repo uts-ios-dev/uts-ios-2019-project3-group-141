@@ -47,9 +47,13 @@ class DetailTaskViewController: UIViewController {
         }
 
         firstLabel.isHidden = true
+        firstTaskClicked.isHidden = true
         secondLabel.isHidden = true
+        secondTaskClicked.isHidden = true
         thirdLabel.isHidden = true
+        thirdTaskClicked.isHidden = true
         fourthLabel.isHidden = true
+        fourthTaskClicked.isHidden = true
 
         ref.child(uid!).child(identifier!).observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot)
@@ -71,25 +75,37 @@ class DetailTaskViewController: UIViewController {
             var text3: String = ""
             var text4: String = ""
             print("subtasks are:\(subArray)")
-            if subArray![0] != nil {
+            if subArray![0] != nil || subArray![0] as! String != "n1"{
                  text1 = subArray![0] as! String
-                self.firstLabel.text = text1
-                self.firstLabel.isHidden = false
+                if !text1.isEmpty{
+                    self.firstLabel.text = text1
+                    self.firstLabel.isHidden = false
+                    self.firstTaskClicked.isHidden = false
+                }
             }
-            if subArray![1] != nil {
+            if subArray![1] != nil || subArray![1] as! String != "n1"{
                 text2 = subArray![1] as! String
-                self.secondLabel.text = text2
-                self.secondLabel.isHidden = false
+                if !text2.isEmpty{
+                    self.secondLabel.text = text2
+                    self.secondLabel.isHidden = false
+                    self.secondTaskClicked.isHidden = false
+                }
             }
-            if subArray![2] != nil {
+            if subArray![2] != nil || subArray![2] as! String != "n2"{
                 text3 = subArray![2] as! String
-                self.thirdLabel.text = text3
-                self.thirdLabel.isHidden = false
+                if !text3.isEmpty{
+                    self.thirdLabel.text = text3
+                    self.thirdLabel.isHidden = false
+                    self.thirdTaskClicked.isHidden = false
+                }
             }
-            if subArray![3] != nil {
+            if subArray![3] != nil || subArray![3] as! String != "n3"{
                 text4 = subArray![3] as! String
-                self.thirdLabel.text = text4
-                self.thirdLabel.isHidden = false
+                if !text4.isEmpty{
+                    self.fourthLabel.text = text4
+                    self.fourthLabel.isHidden = false
+                    self.fourthTaskClicked.isHidden = false
+                }
             }
         })
         
@@ -97,7 +113,7 @@ class DetailTaskViewController: UIViewController {
         print("identifier is: \(identifier!)")
         databaseHandle = ref.child(uid!).child(identifier!).observe(.childAdded, with: {(snapshot) in
             print(snapshot)
-            let value = snapshot.value as? NSDictionary
+            _ = snapshot.value as? NSDictionary
 //            print("access value name:")
 //            print(value)
         })
